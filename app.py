@@ -15,6 +15,9 @@ def initialize_database():
 
     conn = get_db_connection()
 
+    with open("database/schema.sql", "r") as schema_file:
+        conn.executescript(schema_file.read())
+
     student_exists = conn.execute(
         "SELECT id FROM students WHERE email = ?",
         ("student@example.com",)
@@ -449,6 +452,7 @@ def update_application_status(student_email, company):
 
     return redirect(url_for("admin_applications"))
 
+initialize_database()
+
 if __name__ == "__main__":
-    initialize_database()
     app.run(debug=True)
