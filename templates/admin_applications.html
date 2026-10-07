@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Applications</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <h1>Student Applications</h1>
+
+        <hr>
+
+        {% if applications %}
+
+            {% for application in applications %}
+
+                <div class="application-card">
+
+                    <h2>{{ application.company }}</h2>
+
+                    <p>
+                        <strong>Student:</strong>
+                        {{ application.student_name }}
+                    </p>
+
+                    <p>
+                        <strong>Email:</strong>
+                        {{ application.student_email }}
+                    </p>
+
+                    <p>
+                        <strong>Role:</strong>
+                        {{ application.role }}
+                    </p>
+
+                    <p>
+                        <strong>Status:</strong>
+                        {{ application.status }}
+                    </p>
+                    <form method="POST"
+      action="{{ url_for('update_application_status', student_email=application.student_email, company=application.company) }}">
+
+    <label for="status">Update Status:</label>
+
+    <select name="status" id="status">
+
+        <option value="Applied"
+                {% if application.status == "Applied" %}selected{% endif %}>
+            Applied
+        </option>
+
+        <option value="Shortlisted"
+                {% if application.status == "Shortlisted" %}selected{% endif %}>
+            Shortlisted
+        </option>
+
+        <option value="Selected"
+                {% if application.status == "Selected" %}selected{% endif %}>
+            Selected
+        </option>
+
+        <option value="Rejected"
+                {% if application.status == "Rejected" %}selected{% endif %}>
+            Rejected
+        </option>
+
+    </select>
+
+    <button type="submit">
+        Update Status
+    </button>
+
+</form>
+
+                </div>
+
+                <br>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p>No student applications yet.</p>
+
+        {% endif %}
+
+        <br>
+
+        <a href="{{ url_for('admin_dashboard') }}">
+            <button>Back to Admin Dashboard</button>
+        </a>
+
+    </div>
+
+</body>
+
+</html>

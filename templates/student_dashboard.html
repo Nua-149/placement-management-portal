@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <h1>Student Dashboard</h1>
+
+        <p>Welcome to the Placement Portal!</p>
+
+        <hr>
+
+        <h2>Student Information</h2>
+
+        <p><strong>Name:</strong> Demo Student</p>
+        <p><strong>Branch:</strong> Computer Science</p>
+        <p><strong>CGPA:</strong> 8.2</p>
+        <p><strong>Graduation Year:</strong> 2027</p>
+
+        <hr>
+
+        <h2>Student Services</h2>
+
+        <p>
+            <a href="{{ url_for('profile') }}">
+                <button>My Profile</button>
+            </a>
+        </p>
+
+        <p>
+            <a href="{{ url_for('drives') }}">
+                <button>Placement Drives</button>
+            </a>
+        </p>
+
+        <p>
+            <a href="{{ url_for('applications') }}">
+                <button>My Applications</button>
+            </a>
+        </p>
+
+    </div>
+
+</body>
+
+</html>

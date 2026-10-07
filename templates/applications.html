@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Applications</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <h1>My Applications</h1>
+
+        <hr>
+
+        {% if applications %}
+
+            {% for application in applications %}
+
+                <div class="application-card">
+
+                    <h2>{{ application.company }}</h2>
+
+                    <p>
+                        <strong>Role:</strong>
+                        {{ application.role }}
+                    </p>
+
+                    <p>
+                        <strong>Student:</strong>
+                        {{ application.student_name }}
+                    </p>
+
+                    <p>
+                        <strong>Status:</strong>
+                        {{ application.status }}
+                    </p>
+
+                </div>
+
+                <br>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p>You have not applied for any placement drives yet.</p>
+
+        {% endif %}
+
+        <br>
+
+        <a href="{{ url_for('student_dashboard') }}">
+            <button>Back to Dashboard</button>
+        </a>
+
+    </div>
+
+</body>
+
+</html>

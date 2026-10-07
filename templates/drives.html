@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Placement Drives</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <h1>Available Placement Drives</h1>
+
+        <p>
+            Your CGPA: {{ student.cgpa }}
+        </p>
+
+        <hr>
+
+        {% for drive in drives %}
+
+        <div class="drive-card">
+
+            <h2>{{ drive.company }}</h2>
+
+            <p>
+                <strong>Role:</strong>
+                {{ drive.role }}
+            </p>
+
+            <p>
+                <strong>Minimum CGPA:</strong>
+                {{ drive.min_cgpa }}
+            </p>
+
+            <p>
+                <strong>Eligible Branches:</strong>
+                {{ drive.branches | join(", ") }}
+            </p>
+
+            <p>
+                <strong>Graduation Year:</strong>
+                {{ drive.graduation_year }}
+            </p>
+
+            <a href="{{ url_for('apply', drive_id=drive.id) }}">
+                <button>Apply Now</button>
+            </a>
+
+        </div>
+
+        <br>
+
+        {% endfor %}
+
+    </div>
+
+</body>
+
+</html>

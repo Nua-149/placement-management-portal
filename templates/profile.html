@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Student Profile</h1>
+
+        <div class="card">
+
+            <p>
+                <strong>Name:</strong>
+                {{ student["name"] }}
+            </p>
+
+            <p>
+                <strong>Email:</strong>
+                {{ student["email"] }}
+            </p>
+
+            <p>
+                <strong>Branch:</strong>
+                {{ student["branch"] }}
+            </p>
+
+            <p>
+                <strong>CGPA:</strong>
+                {{ student["cgpa"] }}
+            </p>
+
+            <p>
+                <strong>Graduation Year:</strong>
+                {{ student["graduation_year"] }}
+            </p>
+
+            <p>
+                <strong>Backlogs:</strong>
+                {{ student["backlogs"] }}
+            </p>
+
+        </div>
+
+        <br>
+
+        <a href="{{ url_for('student_dashboard') }}">
+            Back to Dashboard
+        </a>
+
+    </div>
+
+</body>
+</html>

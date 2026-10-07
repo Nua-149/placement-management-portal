@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <h1>Admin Dashboard</h1>
+
+        <p>Welcome, Placement Administrator!</p>
+
+        <hr>
+
+        <h2>Placement Management</h2>
+
+        <div class="admin-options">
+
+            <p>
+                <a href="{{ url_for('admin_applications') }}">
+                    <button>
+                        View Student Applications
+                    </button>
+                </a>
+            </p>
+
+            <p>
+                <a href="{{ url_for('drives') }}">
+                    <button>
+                        View Placement Drives
+                    </button>
+                </a>
+            </p>
+
+            <p>
+                <a href="{{ url_for('student_dashboard') }}">
+                    <button>
+                        View Student Portal
+                    </button>
+                </a>
+            </p>
+
+        </div>
+
+        <hr>
+
+        <p>
+            <a href="{{ url_for('login') }}">
+                <button>Logout</button>
+            </a>
+        </p>
+
+    </div>
+
+</body>
+
+</html>
